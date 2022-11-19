@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block body %}
+<!-- todo: update les redirections -->
+<div class="navbar-fixed">
+    <nav class ="myNav">
+        <div class="nav-wrapper ">
+            <a href="/accueil" class="brand-logo" style="padding-left: 4px;">Accueil</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <!-- Dropdown Trigger -->
+                <li><a class="dropdown-trigger" data-target="dropdown1">Réalisation<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="/cv">CV</a></li>
+                <li><a href="/contact"> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="/realisation/c">C</a></li>
+    <li><a href="/realisation/java">Java</a></li>
+    <li><a href="/realisation/php">PHP</a></li>
+    <li><a href="/realisation/android">Android</a></li>
+</ul>
+
+<!-- Mobile Menu -->
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="/accueil">Accueil</a></li>
+    <li class="divider"></li>
+    <!-- Dropdown Trigger -->
+    <li><a href="/realisation/c">C</a></li>
+    <li><a href="/realisation/java">Java</a></li>
+    <li><a href="/realisation/php">PHP</a></li>
+    <li><a href="/realisation/android">Android</a></li>
+    <li class="divider"></li>
+    <li><a href="/cv">CV</a></li>
+    <li><a href="/contact">Contact</a></li>
+</ul>
+
+<style>
+    .myNav{
+        background-color: transparent;
+        backdrop-filter: blur(6px);
+    }
+
+    #dropdown1{
+        background-color: #16161a;
+    }
+
+    .brand-logo{
+        padding: 10px;
+    }
+
+    .sidenav{
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+        width: 100%;
+    }
+
+    .sidenav li a,#dropdown1 li a, .myNav a, .myNav li a{
+        text-shadow: 1px 0 #010101, -1px 0 #010101, 0 1px #010101, 0 -1px #010101,
+        1px 1px #010101, -1px -1px #010101, 1px -1px #010101, -1px 1px #010101;
+        color: #94a1b2 ;
+    }
+
+    @media screen and (max-width: 1024px){
+        .myNav a{
+            font-size: 1.5rem;
+        }
+
+        .brand-logo{
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+</style>
+
+<script>
+    //dropdown
+    $(".dropdown-trigger").dropdown();
+
+    //mobile menu
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    });
+
+
+    var path = location.pathname;
+    var directories = path.split("/");
+    var lastDirecotry = directories[(directories.length - 1)];
+
+    if (window.matchMedia("(max-width: 767px)").matches)
+    {
+        if(directories[(directories.length - 2)] === 'realisation'
+            || lastDirecotry === 'cv' || lastDirecotry === 'contact') {
+            $('.brand-logo').text(capitalizeFirstLetter(lastDirecotry));
+        }
+        else if(lastDirecotry === 'Home'){
+            $('.brand-logo').text(" ");
+        }
+    }
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+
+
+</script>
+<div class="container">
+{% endblock %}

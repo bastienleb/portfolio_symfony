@@ -1,0 +1,204 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block body %}
+    {% include('header.html.twig') %}
+    {% include('navbar.html.twig') %}
+
+    <div class="row">
+        <div class="col s12 m6" id="card">
+            <div class="card z-depth-5">
+                <div class="card-content white-text">
+                    <span class="card-title">SUPER QUIZ</span><img id="Photo_quizz" alt="photo quizz" src="" >
+                    <div class="mainSlider">
+                        <img src="" style="display: none" alt="photo quizz" class="responsive-img">
+                    </div>
+                    <p style="margin-bottom: 7px;text-align: justify;text-justify: inter-word;">
+                        Le <i>Super Quiz</i> est un quiz réalisé à l'aide du framework CodeIgniter.
+                        Sur ce site, il est possible de créer une salle qui comporte plusieurs quiz
+                        sur différents thèmes. Chaque salle permet de pouvoir jouer en multijoueur.
+                        <br>
+                        Le site n'est actuellement plus disponible. </p>
+                    <a href="">‎ </a>
+                </div>
+                <hr>
+                <div class="box_lien">
+                    <div class="row s12">
+                        <a class="lien" href="https://github.com/bastienleb/Super-quizz" target="_blank">Télécharger</a>
+                    </div>
+                    <div class="row s12">
+                        <a href="">‎ </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m6" id="card">
+            <div class="card z-depth-5">
+                <div class="card-content white-text">
+                    <span class="card-title">DOODLE</span><img id="Photo_doodle" alt="photo doodle" src="">
+                    <div class="mainSlider">
+                        <img src="" style="display: none" alt="photo doodle" class="responsive-img">
+                    </div>
+
+                    <p style="text-align: justify;text-justify: inter-word;">
+                        Le <i>Doodle</i>, le but ici était de faire un site similaire à l'application doodle.
+                        Il fallait donc à l'aide du framework CodeIgniter faire un calendrier où les différentes
+                        personnes qui possèdent l'accès puissent savoir quand et à quelle heure un rendez-vous était
+                        disponible. La personne qui a créé l'événement peut clôturer ou bien même fermer celui-ci.
+                        <br>
+                </div>
+                <hr>
+                <div class="box_lien">
+                    <div class="row s12">
+                        <a class="lien" href="https://github.com/bastienleb/Doodle" target="_blank">Télécharger</a>
+                    </div>
+                    <div class="row s12">
+                        <a class="dl_lien" href="https://dwarves.iut-fbleau.fr/~metri/projet_doodle/index.php/connexion/" target="_blank">Consulter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6" id="card">
+            <div class="card z-depth-5">
+                <div class="card-content white-text">
+                    <span class="card-title">Cinéma</span><img id="Photo_cinema" alt="photo cinema" src="">
+                    <div class="mainSlider">
+                        <img src="" style="display: none" alt="photo cinema"  class="responsive-img">
+                    </div>
+                    <p style="text-align: justify;text-justify: inter-word;">
+                        Le <i> cinéma </i> est un projet dans le but de l'apprentissage du Framework Riot JS.
+                        Le but est de récupérer les données d'une API du site web :
+                        <a class="lien_db" href="https://www.themoviedb.org/?language=fr" target="_blank">themoviedb</a>.
+                        Une maquette a été donnée afin de suivre un visuel. </p>
+                </div>
+                <hr>
+                <div class="box_lien">
+                    <div class="row s12">
+                        <a class="lien" href="https://github.com/bastienleb/Cinema-list" target="_blank">Télécharger</a>
+                    </div>
+                    <div class="row s12">
+                        <a class="dl_lien" href="https://dwarves.iut-fbleau.fr/~leblet/cinema/" target="_blank">Consulter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        img{
+            width: 100%;
+            border: 3px solid #000;
+            border-radius: 25px;
+        }
+        .card{
+            width: 100%;
+            animation-name: fade-in;
+            animation-duration: 2s;
+            background-color: #16161a;
+            margin-top: 1.5em;
+            border-radius: 3px;
+        }
+
+        p{
+            color: #94a1b2;
+        }
+
+        .card-title{
+            color: #fffffe;
+        }
+
+        p i,.lien,.dl_lien,.lien_db {
+            color: #2cb67d;
+        }
+
+        .lien,.dl_lien,.lien_db{
+            text-decoration: underline;
+        }
+
+        .box_lien{
+            padding: 16px 24px;
+        }
+
+        hr{
+            opacity: 0.25;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+    </style>
+
+    <script>
+        let imageq = [];
+        let altimgq = [];
+
+        let imaged = [];
+        let altimgd = [];
+
+        let imagec = [];
+        let altimgc = [];
+
+        imageq[0] = ["{{asset('images/web/quizz_1.png')}}"];
+        altimgq[0] = ['Menu quizz'];
+
+        imageq[1] = ["{{asset('images/web/quizz_2.png')}}"];
+        altimgq[1] = ['Question quizz'];
+
+        imageq[2] = ["{{asset('images/web/quizz_3.png')}}"];
+        altimgq[2] = ['Page quizz'];
+
+
+        imaged[0] = ["{{asset('images/web/connect_doodle.png')}}"];
+        altimgd[0] = ['Connection doodle'];
+
+        imaged[1] = ["{{asset('images/web/menu_doodle.png')}}"];
+        altimgd[1] = ['Menu doodle'];
+
+        imaged[2] = ["{{asset('images/web/date_doodle.png')}}"];
+        altimgd[2] = ['Date doodle'];
+        
+
+        imagec[0] = ["{{asset('images/web/Detail_cinema.png')}}"];
+        altimgc[0] = ['Detail cinema'];
+
+        imagec[1] = ["{{asset('images/web/Menu_cinema.png')}}"];
+        altimgc[1] = ['Menu cinema'];
+
+        let index = 0;
+        let indexc = 0
+
+        function change() {
+            document.getElementById("Photo_quizz").src = imageq[index];
+            document.getElementById("Photo_quizz").alt = altimgq[index];
+            document.getElementById("Photo_doodle").src = imaged[index];
+            document.getElementById("Photo_doodle").alt = altimgq[index];
+            document.getElementById("Photo_cinema").src = imagec[indexc];
+            document.getElementById("Photo_cinema").alt = altimgc[indexc];
+
+            if (index === 2) {
+                index = 0;
+            } else {
+                index++;
+            }
+
+            if(indexc === 1){
+                indexc =0;
+            }
+            else{
+                indexc++;
+            }
+
+            setTimeout(change, 2500);
+        }
+
+        window.onload = change();
+    </script>
+
+    {% include('footer.html.twig') %}
+{% endblock %}

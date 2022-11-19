@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+{% block title %}Portfolio{% endblock %}
+
+{% block body %}
+    {% include('header.html.twig') %}
+    {% include('navbar.html.twig') %}
+    <div class="row my_card z-depth-1">
+        <h4 class="text">Contactez-moi à <u><a href="mailto:bastienleblet@gmail.com ?subject=[PORTFOLIO]">bastienleblet@gmail.com</a></u> </h4>
+        <p>Si vous avez certaines questions suite à mon portfolio ou a mon parcours scolaire et professionnel <br>
+            vous pouvez me contacter à l'aide de ce formulaire ou bien sur les différents liens.</p>
+
+        <div class="row col s12 gauche">
+
+            <form action="Contact/sendMail" method="post">
+                <h5>Nom: <span>*</span></h5>
+                <input type="text" id="nom" name="nom" required>
+                <label for="nom"></label>
+
+                <h5>Email: <span>*</span></h5>
+                <input type="text" id="email" name="email" required>
+                <label for="email"></label>
+
+                <h5>Message: <span>*</span></h5>
+                <textarea class="materialize-textarea" id="message" name="message" required> </textarea>
+                <label for="message"></label>
+
+                <div class="col m10"> <p>‎ </p></div>
+                <button class="waves-effect btn-flat send" type="submit" > envoyer</button>
+
+            </form>
+            <p class="obligation">* Champs obligatoire</p>
+        </div>
+    </div>
+
+    <style>
+
+        .text{
+            font-size: 30px;
+        }
+
+        .text,.send,a{
+            color: #fffffe;
+        }
+        p,h5,input,textarea{
+            color :#94a1b2;
+        }
+
+        .send{
+            background-color:#7f5af0;
+        }
+
+        p,.text,h5{
+            cursor: default;
+        }
+
+        .my_card{
+            background-color: #16161a;
+            padding: 1rem;
+            margin: 80px 0 85px 0;
+            border-radius: 3px;
+        }
+
+        span,.obligation{
+            color: #2cb67d;
+        }
+
+        .obligation{
+            font-size: 11px;
+        }
+        span{
+            font-size: 15px;
+        }
+
+    </style>
+
+    {% include('footer.html.twig') %}
+{% endblock %}

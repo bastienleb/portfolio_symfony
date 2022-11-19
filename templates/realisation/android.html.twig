@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block body %}
+    {% include('header.html.twig') %}
+    {% include('navbar.html.twig') %}
+
+    <div class="row">
+        <div class="col s12 m6" id="card">
+            <div class="card z-depth-5">
+                <div class="card-content">
+                    <span class="card-title">Application de sport</span><img id="mainPhoto" alt="application de sport" src="">
+                    <div class="col m3">
+                        <p>‎ </p>
+                    </div>
+                    <div class="mainSlider col m9">
+                        <img src="" style="display: none" class="responsive-img" alt="application mobile">
+                    </div>
+                    <br>
+                    <p>‎ </p>
+                    <p style="text-align: justify;text-justify: inter-word;">
+                        Cette application est un projet de 6 mois, l'application n'est pas encore complètement finalisée,
+                        mais elle est fonctionnelle, inspirée des différentes applications de sport que l'on peut trouver
+                        sur le marché de l'application. Sur cette application il est possible de suivre plusieurs types
+                        d'activités, un system d'historique permet de récupérer ses anciennes activités ainsi que les
+                        différents parcourus.
+                        <br>
+                </div>
+                <hr>
+                <div class="box_lien">
+                    <a class="lien" href="https://github.com/bastienleb/PT-app-mobile" target="_blank">Pour récupérer le code, cliquez ici</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        img{
+            width: 50%;
+            border: 3px solid #000;
+            border-radius: 25px;
+        }
+        .card{
+            width: 100%;
+            animation-name: fade-in;
+            animation-duration: 2s;
+            background-color: #16161a;
+            margin-top: 1.5em;
+            border-radius: 3px;
+        }
+        .card-title{
+            color: #fffffe;
+        }
+
+        p{
+            color: #94a1b2;
+        }
+
+        p i,.lien {
+            color: #2cb67d;
+        }
+
+        .lien{
+            text-decoration: underline;
+        }
+
+        .box_lien{
+            padding: 16px 24px;
+        }
+
+        hr{
+            opacity: 0.25;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @media screen and (max-width: 1024px) {
+            img{
+                width: 100%;
+            }
+        }
+
+    </style>
+
+    <script>
+        let images = [];
+        let altimg = [];
+
+        images[0] = ["{{ asset('images/android/android_connection.jpg')}}"];
+        altimg[0] = ['Connection application sport android'];
+
+        images[1] = ["{{ asset('images/android/android_inscription.jpg')}}"];
+        altimg[1] = ['Inscription application sport android'];
+
+        images[2] = ["{{asset('images/android/android_sport.jpg')}}"];
+        altimg[2] = ['Menu application sport android'];
+
+        images[3] = ["{{asset('images/android/android_activite.jpg')}}"];
+        altimg[3] = ['Activité application sport android'];
+
+        images[4] = ["{{asset('images/android/android_historique.jpg')}}"];
+        altimg[4] = ['Historique application sport android'];
+
+        let index = 0;
+
+        function change() {
+            document.getElementById("mainPhoto").src = images[index];
+            document.getElementById("mainPhoto").alt = altimg[index];
+            if (index === 4) {
+                index = 0;
+            } else {
+                index++;
+            }
+
+            setTimeout(change, 2500);
+        }
+
+        window.onload = change();
+    </script>
+    {% include('footer.html.twig') %}
+{% endblock %}
